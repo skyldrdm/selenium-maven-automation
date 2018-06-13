@@ -1,5 +1,6 @@
 package com.dice;
 
+import java.time.LocalDateTime;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -30,7 +31,7 @@ public class DiceJobSearh {
 		String expectedTitle="Job Search for Technology Professionals | Dice.com";
 				
 		if(actualTitle.equals(expectedTitle)) {
-			System.out.println("step Pass. Dice homepage succesfully loaded.");
+			System.out.println("Step Pass. Dice homepage succesfully loaded.");
 		}else {
 			System.out.println("Step Fail. Dice homepage did not load successfully loaded.");
 			throw new RuntimeException("Step fail.Dice homepage did not load successfully loaded.");
@@ -38,14 +39,14 @@ public class DiceJobSearh {
 		
 		String keyword="java developer";
 		driver.findElement(By.id("search-field-keyword")).clear();
-		driver.findElement(By.id("search-field-keyword")).sendKeys("keyword");
+		driver.findElement(By.id("search-field-keyword")).sendKeys(keyword);
 		
 		
 		String location="22102";
 		driver.findElement(By.id("search-field-location")).clear();
-		driver.findElement(By.id("search-field-location")).sendKeys("location");
+		driver.findElement(By.id("search-field-location")).sendKeys(location);
 		
-		driver.findElement(By.id("fingTechJobs")).click();
+		driver.findElement(By.id("findTechJobs")).click();
 		
 		String count=driver.findElement(By.id("posiCountId")).getText();
 		System.out.println(count);
@@ -60,6 +61,7 @@ public class DiceJobSearh {
 		}
 		
 		driver.close();
+		System.out.println("TEST COMPLETED -"+ LocalDateTime.now());
 		
 		
 		
